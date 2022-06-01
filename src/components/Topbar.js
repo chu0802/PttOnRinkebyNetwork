@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "web3uikit";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { addrToName_option } from "../variables";
+import { contract_addr } from "../variables";
 
 const Topbar = () => {
   const { Moralis } = useMoralis();
@@ -10,6 +11,7 @@ const Topbar = () => {
   const [showName, setShowName] = useState(false);
   const [name, setName] = useState();
   const [fullAddr, setFullAddr] = useState(false);
+  const [fullContractAddr, setFullContractAddr] = useState(false);
   const contractProcessor = useWeb3ExecuteFunction();
 
   async function getName (){
@@ -35,10 +37,12 @@ const Topbar = () => {
           <span>Ptt On Rinkeby Network</span>
         </Link>
         <span>&rsaquo;</span>
-        
-        <Link to="/" className="board link">
+        <div className="board link" onClick={()=>{setFullContractAddr(!fullContractAddr)}}>
+          {fullContractAddr? contract_addr : `${contract_addr.slice(0, 6)}...${contract_addr.slice(38)}`}
+        </div>
+        {/* <Link to="/" className="board link">
         <span class="board-label">看板 </span>Gossiping
-        </Link>
+        </Link> */}
         <div
           className="right small link"
           onClick={() => {

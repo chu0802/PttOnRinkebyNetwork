@@ -1,4 +1,4 @@
-const contract_addr = "0x4c6C0613cfc085fA63Cad53BB15D8dace0EA47e3"
+export const contract_addr = "0x4c6C0613cfc085fA63Cad53BB15D8dace0EA47e3";
 export var get_posts_option = {
     contractAddress: contract_addr,
     functionName: "get_posts",
