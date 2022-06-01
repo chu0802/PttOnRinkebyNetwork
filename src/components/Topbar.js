@@ -37,7 +37,7 @@ const Topbar = () => {
           <span>Ptt On Rinkeby Network</span>
         </Link>
         <span>&rsaquo;</span>
-        <div className="board link" onClick={()=>{setFullContractAddr(!fullContractAddr)}}>
+        <div className="board link" onClick={()=>{setFullContractAddr(!fullContractAddr); if (fullContractAddr && fullAddr){setFullAddr(false);}}}>
           {fullContractAddr? contract_addr : `${contract_addr.slice(0, 6)}...${contract_addr.slice(38)}`}
         </div>
         {/* <Link to="/" className="board link">
